@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.controller.PaiementController">
+
+    <!-- ── Barre du haut : titre + bouton Nouveau ─────────────── -->
+    <top>
+        <VBox style="-fx-padding: 10 10 0 10;">
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="💳 Gestion des Paiements"
+                       style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="lblTotal"
+                       style="-fx-font-size: 14; -fx-text-fill: #34d399; -fx-font-weight: bold;"/>
+                <Button text="+ Nouveau paiement"
+                        onAction="#showAddDialog"
+                        style="-fx-background-color: #34d399; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <!-- Filtre par statut -->
+            <HBox spacing="8" style="-fx-padding: 8 0 8 0;">
+                <Label text="Filtrer :"/>
+                <ComboBox fx:id="filtreStatut"
+                          onAction="#handleFiltre"
+                          prefWidth="160"/>
+            </HBox>
+
+        </VBox>
+    </top>
+
+    <!-- ── Tableau principal ──────────────────────────────────── -->
+    <center>
+        <TableView fx:id="paiementTable"
+                   style="-fx-padding: 0 10 10 10;"
+                   columnResizePolicy="CONSTRAINED_RESIZE_POLICY">
+            <columns>
+                <TableColumn fx:id="colId"     text="ID"          prefWidth="50"/>
+                <TableColumn fx:id="colClient" text="Client"      prefWidth="160"/>
+                <TableColumn fx:id="colChambre" text="Chambre"    prefWidth="80"/>
+                <TableColumn fx:id="colMontant" text="Montant (DT)" prefWidth="110"/>
+                <TableColumn fx:id="colMode"   text="Mode"        prefWidth="100"/>
+                <TableColumn fx:id="colStatut" text="Statut"      prefWidth="100"/>
+                <TableColumn fx:id="colDate"   text="Date"        prefWidth="140"/>
+                <TableColumn fx:id="colActions" text="Actions"   prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

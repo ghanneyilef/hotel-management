@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.controller.ReservationController">
+  <top>
+    <HBox spacing="10" style="-fx-padding: 10;">
+      <Label text="📅 Gestion Réservations"
+             style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+      <Region HBox.hgrow="ALWAYS"/>
+      <Button text="+ Nouvelle" onAction="#showAddDialog"
+              style="-fx-background-color: #a78bfa; -fx-text-fill: white;"/>
+    </HBox>
+  </top>
+  <center>
+    <TableView fx:id="reservationTable" style="-fx-padding: 10;">
+      <columns>
+        <TableColumn fx:id="colId"      text="ID"        prefWidth="50"/>
+        <TableColumn fx:id="colClient"  text="Client"    prefWidth="150"/>
+        <TableColumn fx:id="colChambre" text="Chambre"   prefWidth="80"/>
+        <TableColumn fx:id="colArrivee" text="Arrivée"   prefWidth="100"/>
+        <TableColumn fx:id="colDepart"  text="Départ"    prefWidth="100"/>
+        <TableColumn fx:id="colMontant" text="Montant"   prefWidth="90"/>
+        <TableColumn fx:id="colStatut"  text="Statut"    prefWidth="100"/>
+        <TableColumn fx:id="colActions" text="Actions"   prefWidth="120"/>
+      </columns>
+    </TableView>
+  </center>
+</BorderPane>

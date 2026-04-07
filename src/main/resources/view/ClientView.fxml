@@ -1,0 +1,31 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.controller.ClientController">
+
+    <top>
+        <HBox spacing="10" style="-fx-padding: 10;">
+            <Label text="👥 Gestion Clients"
+                   style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="searchField" promptText="Rechercher..."
+                       onKeyReleased="#handleSearch" prefWidth="200"/>
+            <Button text="+ Nouveau" onAction="#showAddDialog"
+                    style="-fx-background-color: #34d399; -fx-text-fill: white;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="clientTable" style="-fx-padding: 10;">
+            <columns>
+                <TableColumn fx:id="colId"     text="ID"        prefWidth="50"/>
+                <TableColumn fx:id="colNom"    text="Nom"       prefWidth="130"/>
+                <TableColumn fx:id="colPrenom" text="Prénom"    prefWidth="130"/>
+                <TableColumn fx:id="colEmail"  text="Email"     prefWidth="200"/>
+                <TableColumn fx:id="colTel"    text="Téléphone" prefWidth="120"/>
+                <TableColumn fx:id="colActions" text="Actions"  prefWidth="130"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
