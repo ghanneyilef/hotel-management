@@ -1,0 +1,21 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml">
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Clients">
+                <fx:include source="ClientView.fxml"/>
+            </Tab>
+            <Tab text="Chambres">
+                <fx:include source="ChambreView.fxml"/>
+            </Tab>
+            <Tab text="Réservations">
+                <fx:include source="ReservationView.fxml"/>
+            </Tab>
+            <Tab text="Employés">
+                <fx:include source="EmployeView.fxml"/>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

@@ -93,6 +93,24 @@ public class EmployeDAO {
         return false;
     }
 
+    /** AJOUT : Chambres occupées (statut OCCUPEE) sans aucun employé assigné */
+    public long countChambresNonCouvertes() {
+        String sql = """
+            SELECT COUNT(*) FROM chambres ch
+            WHERE ch.statut = 'OCCUPEE'
+              AND NOT EXISTS (
+                  SELECT 1 FROM chambre_employes ce
+                  WHERE ce.chambre_id = ch.id
+              )
+            """;
+        try (Connection c = DatabaseConnection.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) return rs.getLong(1);
+        } catch (SQLException e) { e.printStackTrace(); }
+        return 0;
+    }
+
     public boolean insert(Employe e) {
         String sql = "INSERT INTO employes(nom,prenom,role,telephone,statut) VALUES(?,?,?,?,?)";
         try (Connection c = DatabaseConnection.getConnection();
