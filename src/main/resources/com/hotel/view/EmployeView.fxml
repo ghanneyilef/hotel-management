@@ -1,29 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.hotel.controller.EmployeController">
+
+    <!-- TOP -->
     <top>
-        <HBox spacing="10" style="-fx-padding: 10;">
-            <Label text="👷 Gestion Employés"
-                   style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+        <HBox spacing="10" style="-fx-padding:10;">
+
+            <Label text="Gestion Employés"
+                   style="-fx-font-size:18; -fx-font-weight:bold;"/>
+
             <Region HBox.hgrow="ALWAYS"/>
-            <Button text="+ Nouvel employé" onAction="#showAddDialog"
-                    style="-fx-background-color: #34d399; -fx-text-fill: white;"/>
+
+            <!-- FILTER -->
+            <ComboBox fx:id="filtreRole"
+                      onAction="#handleFiltreRole"
+                      prefWidth="150"
+                      promptText="Filtre rôle"/>
+
+            <!-- SEARCH -->
+            <TextField fx:id="searchField"
+                       onKeyReleased="#handleSearch"
+                       promptText="Recherche"/>
+
+            <!-- ADD BUTTON -->
+            <Button text="+ Ajouter"
+                    onAction="#showAddDialog"
+                    style="-fx-background-color:#34d399; -fx-text-fill:white;"/>
         </HBox>
     </top>
+
+    <!-- CENTER -->
     <center>
-        <TableView fx:id="employeTable" style="-fx-padding: 10;">
+        <TableView fx:id="employeTable">
+
             <columns>
-                <TableColumn fx:id="colId"      text="ID"        prefWidth="50"/>
-                <TableColumn fx:id="colNom"     text="Nom"       prefWidth="120"/>
-                <TableColumn fx:id="colPrenom"  text="Prénom"    prefWidth="120"/>
-                <TableColumn fx:id="colRole"    text="Rôle"      prefWidth="100"/>
-                <TableColumn fx:id="colTel"     text="Téléphone" prefWidth="110"/>
-                <TableColumn fx:id="colStatut"  text="Statut"    prefWidth="90"/>
-                <TableColumn fx:id="colActions" text="Actions"   prefWidth="120"/>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colNom" text="Nom" prefWidth="120"/>
+                <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="120"/>
+                <TableColumn fx:id="colRole" text="Rôle" prefWidth="100"/>
+                <TableColumn fx:id="colTel" text="Téléphone" prefWidth="120"/>
+                <TableColumn fx:id="colStatut" text="Statut" prefWidth="100"/>
+                <TableColumn fx:id="colNbCh" text="Chambres" prefWidth="100"/>
+                <TableColumn fx:id="colActions" text="Actions" prefWidth="150"/>
             </columns>
+
         </TableView>
     </center>
+
 </BorderPane>

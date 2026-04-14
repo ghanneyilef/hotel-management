@@ -35,7 +35,7 @@
     <center>
         <TableView fx:id="paiementTable"
                    style="-fx-padding: 0 10 10 10;"
-                   columnResizePolicy="CONSTRAINED_RESIZE_POLICY">
+        >
             <columns>
                 <TableColumn fx:id="colId"     text="ID"          prefWidth="50"/>
                 <TableColumn fx:id="colClient" text="Client"      prefWidth="160"/>

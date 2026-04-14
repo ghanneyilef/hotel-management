@@ -37,13 +37,14 @@ public class LoginController {
                 errorLabel.setText("Identifiants incorrects");
             }
         } catch (Exception e) {
-            errorLabel.setText("Erreur de connexion à la base");
+            e.printStackTrace();
+            errorLabel.setText(e.getMessage());
         }
     }
 
     private void ouvrirDashboard() throws Exception {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/hotel/view/ClientView.fxml"));
+                getClass().getResource("/com/hotel/view/MainView.fxml"));
         Stage stage = (Stage) usernameField.getScene().getWindow();
         stage.setScene(new Scene(loader.load(), 900, 600));
         stage.setTitle("Hôtel Manager — Dashboard");

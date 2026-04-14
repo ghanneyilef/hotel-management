@@ -16,6 +16,9 @@
             <Tab text="Employés">
                 <fx:include source="EmployeView.fxml"/>
             </Tab>
+            <Tab text="Paiements">
+                <fx:include source="PaiementView.fxml"/>
+            </Tab>
         </TabPane>
     </center>
 </BorderPane>
