@@ -1,52 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.hotel.controller.PaiementController">
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hotel.controller.PaiementController"
+      stylesheets="@style.css">
 
-    <!-- ── Barre du haut : titre + bouton Nouveau ─────────────── -->
-    <top>
-        <VBox style="-fx-padding: 10 10 0 10;">
-
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="💳 Gestion des Paiements"
-                       style="-fx-font-size: 18; -fx-font-weight: bold;"/>
-                <Region HBox.hgrow="ALWAYS"/>
-                <Label fx:id="lblTotal"
-                       style="-fx-font-size: 14; -fx-text-fill: #34d399; -fx-font-weight: bold;"/>
-                <Button text="+ Nouveau paiement"
-                        onAction="#showAddDialog"
-                        style="-fx-background-color: #34d399; -fx-text-fill: white; -fx-font-weight: bold;"/>
-            </HBox>
-
-            <!-- Filtre par statut -->
-            <HBox spacing="8" style="-fx-padding: 8 0 8 0;">
-                <Label text="Filtrer :"/>
-                <ComboBox fx:id="filtreStatut"
-                          onAction="#handleFiltre"
-                          prefWidth="160"/>
-            </HBox>
-
+    <!-- ── TOPBAR ─────────────────────────────────── -->
+    <HBox styleClass="topbar" alignment="CENTER_LEFT">
+        <VBox spacing="2" HBox.hgrow="ALWAYS">
+            <Label text="Gestion paiements" styleClass="page-title"/>
+            <Label fx:id="lblTotal" text="" styleClass="page-subtitle"/>
         </VBox>
-    </top>
+        <HBox spacing="8" alignment="CENTER_RIGHT">
+            <ComboBox fx:id="filtreStatut"
+                      onAction="#handleFiltre"
+                      prefWidth="160"
+                      promptText="Filtrer par statut"
+                      styleClass="combo-box"
+                      style="-fx-pref-height:34px;"/>
+            <Button text="+ Nouveau paiement"
+                    onAction="#showAddDialog"
+                    styleClass="btn-primary"/>
+        </HBox>
+    </HBox>
 
-    <!-- ── Tableau principal ──────────────────────────────────── -->
-    <center>
-        <TableView fx:id="paiementTable"
-                   style="-fx-padding: 0 10 10 10;"
-                   columnResizePolicy="CONSTRAINED_RESIZE_POLICY">
-            <columns>
-                <TableColumn fx:id="colId"     text="ID"          prefWidth="50"/>
-                <TableColumn fx:id="colClient" text="Client"      prefWidth="160"/>
-                <TableColumn fx:id="colChambre" text="Chambre"    prefWidth="80"/>
-                <TableColumn fx:id="colMontant" text="Montant (DT)" prefWidth="110"/>
-                <TableColumn fx:id="colMode"   text="Mode"        prefWidth="100"/>
-                <TableColumn fx:id="colStatut" text="Statut"      prefWidth="100"/>
-                <TableColumn fx:id="colDate"   text="Date"        prefWidth="140"/>
-                <TableColumn fx:id="colActions" text="Actions"   prefWidth="120"/>
-            </columns>
-        </TableView>
-    </center>
+    <!-- ── TABLE ─────────────────────────────────── -->
+    <VBox styleClass="table-wrap" VBox.vgrow="ALWAYS">
+        <VBox styleClass="table-card" VBox.vgrow="ALWAYS">
+            <HBox style="-fx-padding: 12 16 12 16; -fx-border-color: transparent transparent #E8ECF0 transparent; -fx-border-width: 0 0 1 0;" alignment="CENTER_LEFT">
+                <Label text="Liste des paiements" style="-fx-font-size:13px; -fx-font-weight:bold; -fx-text-fill:#1A1A2E;"/>
+            </HBox>
+            <TableView fx:id="paiementTable"
+                       styleClass="table-view"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"      text="ID"          prefWidth="55"/>
+                    <TableColumn fx:id="colClient"  text="CLIENT"      prefWidth="150"/>
+                    <TableColumn fx:id="colChambre" text="CHAMBRE"     prefWidth="85"/>
+                    <TableColumn fx:id="colMontant" text="MONTANT (DT)" prefWidth="115"/>
+                    <TableColumn fx:id="colMode"    text="MODE"        prefWidth="100"/>
+                    <TableColumn fx:id="colStatut"  text="STATUT"      prefWidth="100"/>
+                    <TableColumn fx:id="colDate"    text="DATE"        prefWidth="140"/>
+                    <TableColumn fx:id="colActions" text="ACTIONS"     prefWidth="120"/>
+                </columns>
+                <placeholder>
+                    <Label text="Aucun paiement trouvé"
+                           style="-fx-text-fill: #9BA5B0; -fx-font-size: 14px;"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </VBox>
 
-</BorderPane>
+</VBox>

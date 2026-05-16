@@ -3,9 +3,9 @@ package com.hotel.model;
 public class Chambre {
     private int id;
     private String numero;
-    private String type;  // Simple, Double, Suite
+    private String type;
     private double prixNuit;
-    private String statut; // LIBRE, OCCUPEE
+    private String statut;
     private String description;
 
     public Chambre() {}
@@ -17,7 +17,7 @@ public class Chambre {
         this.statut = "LIBRE";
     }
 
-    // Getters & Setters
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

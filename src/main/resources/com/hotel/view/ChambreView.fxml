@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.hotel.controller.ChambreController">
-    <top>
-        <HBox spacing="10" style="-fx-padding: 10;">
-            <Label text="🛏️ Gestion Chambres"
-                   style="-fx-font-size: 18; -fx-font-weight: bold;"/>
-            <Region HBox.hgrow="ALWAYS"/>
-            <Button text="+ Nouvelle" onAction="#showAddDialog"
-                    style="-fx-background-color: #4f8ef7; -fx-text-fill: white;"/>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hotel.controller.ChambreController"
+      stylesheets="@style.css">
+
+    <!-- ── TOPBAR ─────────────────────────────────── -->
+    <HBox styleClass="topbar" alignment="CENTER_LEFT">
+        <VBox spacing="2" HBox.hgrow="ALWAYS">
+            <Label text="Gestion chambres" styleClass="page-title"/>
+            <Label text="Gérez les chambres et leur disponibilité" styleClass="page-subtitle"/>
+        </VBox>
+        <HBox spacing="8" alignment="CENTER_RIGHT">
+            <Button text="+ Nouvelle chambre"
+                    onAction="#showAddDialog"
+                    styleClass="btn-primary"/>
         </HBox>
-    </top>
-    <center>
-        <TableView fx:id="chambreTable" style="-fx-padding: 10;">
-            <columns>
-                <TableColumn fx:id="colId"     text="ID"          prefWidth="50"/>
-                <TableColumn fx:id="colNumero" text="Numéro"      prefWidth="80"/>
-                <TableColumn fx:id="colType"   text="Type"        prefWidth="100"/>
-                <TableColumn fx:id="colPrix"   text="Prix/nuit"   prefWidth="100"/>
-                <TableColumn fx:id="colStatut" text="Statut"      prefWidth="100"/>
-                <TableColumn fx:id="colActions" text="Actions"    prefWidth="120"/>
-            </columns>
-        </TableView>
-    </center>
-</BorderPane>
+    </HBox>
+
+    <!-- ── TABLE ─────────────────────────────────── -->
+    <VBox styleClass="table-wrap" VBox.vgrow="ALWAYS">
+        <VBox styleClass="table-card" VBox.vgrow="ALWAYS">
+            <HBox style="-fx-padding: 12 16 12 16; -fx-border-color: transparent transparent #E8ECF0 transparent; -fx-border-width: 0 0 1 0;" alignment="CENTER_LEFT">
+                <Label text="Liste des chambres" style="-fx-font-size:13px; -fx-font-weight:bold; -fx-text-fill:#1A1A2E;"/>
+            </HBox>
+            <TableView fx:id="chambreTable"
+                       styleClass="table-view"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"      text="ID"        prefWidth="60"/>
+                    <TableColumn fx:id="colNumero"  text="NUMÉRO"    prefWidth="90"/>
+                    <TableColumn fx:id="colType"    text="TYPE"      prefWidth="110"/>
+                    <TableColumn fx:id="colPrix"    text="PRIX/NUIT" prefWidth="110"/>
+                    <TableColumn fx:id="colStatut"  text="STATUT"    prefWidth="120"/>
+                    <TableColumn fx:id="colActions" text="ACTIONS"   prefWidth="160"/>
+                </columns>
+                <placeholder>
+                    <Label text="Aucune chambre trouvée"
+                           style="-fx-text-fill: #9BA5B0; -fx-font-size: 14px;"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </VBox>
+
+</VBox>

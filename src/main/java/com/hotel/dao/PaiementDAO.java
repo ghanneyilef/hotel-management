@@ -7,7 +7,7 @@ import java.util.*;
 
 public class PaiementDAO {
 
-    // ─── Récupérer tous les paiements (avec JOIN) ────────────────
+
     public List<Paiement> findAll() {
         List<Paiement> list = new ArrayList<>();
         String sql = """
@@ -28,7 +28,7 @@ public class PaiementDAO {
         return list;
     }
 
-    // ─── Paiements d'une réservation précise ────────────────────
+
     public List<Paiement> findByReservation(int reservationId) {
         List<Paiement> list = new ArrayList<>();
         String sql = """
@@ -51,7 +51,7 @@ public class PaiementDAO {
         return list;
     }
 
-    // ─── Insérer un paiement ────────────────────────────────────
+
     public boolean insert(Paiement p) {
         String sql = """
             INSERT INTO paiements
@@ -72,7 +72,7 @@ public class PaiementDAO {
         return false;
     }
 
-    // ─── Mettre à jour le statut d'un paiement ──────────────────
+
     public boolean updateStatut(int id, String statut) {
         String sql = "UPDATE paiements SET statut = ? WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -84,7 +84,7 @@ public class PaiementDAO {
         return false;
     }
 
-    // ─── Supprimer un paiement ──────────────────────────────────
+
     public boolean delete(int id) {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(
@@ -95,7 +95,7 @@ public class PaiementDAO {
         return false;
     }
 
-    // ─── Total encaissé (toutes réservations) ───────────────────
+
     public double totalEncaisse() {
         String sql = "SELECT COALESCE(SUM(montant), 0) FROM paiements WHERE statut = 'PAYE'";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -106,7 +106,7 @@ public class PaiementDAO {
         return 0.0;
     }
 
-    // ─── Mapper un ResultSet → Paiement ─────────────────────────
+
     private Paiement mapRow(ResultSet rs) throws SQLException {
         Paiement p = new Paiement();
         p.setId            (rs.getInt      ("id"));

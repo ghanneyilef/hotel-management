@@ -6,7 +6,7 @@ public class Employe {
     private String nom, prenom, role, telephone, statut;
     private int    nbChambres; // champ calculé — combien de chambres assignées
 
-    // ── Constructeurs ──────────────────────────────────────────────────────
+
     public Employe() {}
 
     public Employe(String nom, String prenom, String role, String telephone) {
@@ -17,7 +17,7 @@ public class Employe {
         this.statut    = "ACTIF";
     }
 
-    // ── Getters / Setters ──────────────────────────────────────────────────
+
     public int    getId()               { return id; }
     public void   setId(int id)         { this.id = id; }
 
@@ -39,9 +39,7 @@ public class Employe {
     public int    getNbChambres()       { return nbChambres; }
     public void   setNbChambres(int n)  { this.nbChambres = n; }
 
-    // ── Méthode utilitaire ─────────────────────────────────────────────────
-    // CORRECTION : méthode appelée dans EmployeController ligne 234
-    // → manquante dans ton Employe.java actuel
+
     public String getNomComplet() { return prenom + " " + nom; }
 
     @Override

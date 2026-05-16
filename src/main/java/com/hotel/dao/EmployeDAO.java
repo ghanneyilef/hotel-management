@@ -6,7 +6,7 @@ import java.util.*;
 
 public class EmployeDAO {
 
-    /** Tous les employés avec leur compteur de chambres */
+
     public List<Employe> findAll() {
         List<Employe> list = new ArrayList<>();
         String sql = """
@@ -23,7 +23,6 @@ public class EmployeDAO {
         return list;
     }
 
-    /** Employés assignés à une chambre donnée */
     public List<Employe> findByChambre(int chambreId) {
         List<Employe> list = new ArrayList<>();
         String sql = """
@@ -40,7 +39,7 @@ public class EmployeDAO {
         return list;
     }
 
-    /** Employés ACTIFS ayant moins de 2 chambres, filtrables par rôle */
+
     public List<Employe> findDisponibles(String role) {
         String sql = """
             SELECT e.*, COUNT(ce.chambre_id) AS nb_chambres
@@ -63,7 +62,7 @@ public class EmployeDAO {
         return list;
     }
 
-    /** Assigner un employé à une chambre — double vérification Java + trigger SQL */
+
     public boolean assigner(int chambreId, int employeId) throws Exception {
         String check = "SELECT COUNT(*) FROM chambre_employes WHERE chambre_id = ?";
         try (Connection c = DatabaseConnection.getConnection();
@@ -82,7 +81,7 @@ public class EmployeDAO {
         }
     }
 
-    /** Désassigner un employé d'une chambre */
+
     public boolean desassigner(int chambreId, int employeId) {
         String sql = "DELETE FROM chambre_employes WHERE chambre_id=? AND employe_id=?";
         try (Connection c = DatabaseConnection.getConnection();
@@ -93,7 +92,7 @@ public class EmployeDAO {
         return false;
     }
 
-    /** AJOUT : Chambres occupées (statut OCCUPEE) sans aucun employé assigné */
+
     public long countChambresNonCouvertes() {
         String sql = """
             SELECT COUNT(*) FROM chambres ch

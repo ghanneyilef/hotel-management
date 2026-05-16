@@ -11,7 +11,7 @@ public class Reservation {
     private String statut;
     private double montantTotal;
 
-    // Pour l'affichage dans TableView
+
     private String nomClient;
     private String numeroChambre;
 
@@ -26,7 +26,7 @@ public class Reservation {
         this.statut = "CONFIRMEE";
     }
 
-    // Getters & Setters
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

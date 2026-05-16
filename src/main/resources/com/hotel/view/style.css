@@ -1,0 +1,492 @@
+/* ═══════════════════════════════════════════════
+   HOTEL MANAGER — Modern UI Style
+   Placer dans : src/main/resources/com/hotel/view/style.css
+   ═══════════════════════════════════════════════ */
+
+/* ── Root & Fonts ─────────────────────────────── */
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #F0F2F5;
+}
+
+/* ══════════════════════════════════════════════
+   LOGIN PAGE
+   ══════════════════════════════════════════════ */
+.login-root {
+    -fx-background-color: #0F1923;
+}
+.login-card {
+    -fx-background-color: #1A2535;
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+    -fx-border-color: #2A3A50;
+    -fx-border-width: 1;
+    -fx-padding: 40 48 40 48;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 30, 0, 0, 8);
+}
+.login-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+.login-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #7A8FA6;
+}
+.login-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #9BAFC4;
+    -fx-padding: 0 0 4 0;
+}
+.login-field {
+    -fx-background-color: #111D2B;
+    -fx-border-color: #2A3A50;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #3D5166;
+    -fx-pref-height: 42px;
+    -fx-font-size: 13px;
+    -fx-padding: 0 12 0 12;
+}
+.login-field:focused {
+    -fx-border-color: #185FA5;
+    -fx-border-width: 1.5;
+}
+.login-btn {
+    -fx-background-color: #185FA5;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-pref-height: 44px;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+.login-btn:hover {
+    -fx-background-color: #0C447C;
+}
+.login-btn:pressed {
+    -fx-background-color: #083260;
+}
+.login-error {
+    -fx-text-fill: #F87171;
+    -fx-font-size: 12px;
+}
+
+/* ══════════════════════════════════════════════
+   SIDEBAR
+   ══════════════════════════════════════════════ */
+.sidebar {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent #E8ECF0 transparent transparent;
+    -fx-border-width: 0 1 0 0;
+    -fx-pref-width: 220px;
+    -fx-min-width: 220px;
+}
+.sidebar-header {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #E8ECF0 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 18 16 16 16;
+}
+.logo-icon-box {
+    -fx-background-color: #185FA5;
+    -fx-background-radius: 8;
+    -fx-min-width: 34px;
+    -fx-min-height: 34px;
+    -fx-max-width: 34px;
+    -fx-max-height: 34px;
+    -fx-alignment: center;
+}
+.logo-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A1A2E;
+}
+.logo-sub {
+    -fx-font-size: 11px;
+    -fx-text-fill: #9BA5B0;
+}
+.nav-section {
+    -fx-padding: 12 8 8 8;
+    -fx-spacing: 2;
+}
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #6B7A8D;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 9 12 9 12;
+    -fx-cursor: hand;
+    -fx-background-radius: 8;
+    -fx-border-width: 0;
+    -fx-pref-width: 200px;
+    -fx-max-width: 200px;
+    -fx-graphic-text-gap: 10;
+}
+.nav-btn:hover {
+    -fx-background-color: #F0F4F8;
+    -fx-text-fill: #1A1A2E;
+}
+.nav-btn-active {
+    -fx-background-color: #E6F1FB;
+    -fx-text-fill: #185FA5;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-pref-width: 200px;
+    -fx-max-width: 200px;
+    -fx-padding: 9 12 9 12;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-graphic-text-gap: 10;
+}
+.sidebar-footer {
+    -fx-border-color: #E8ECF0 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 12 8 12 8;
+}
+.user-avatar {
+    -fx-background-color: #E6F1FB;
+    -fx-background-radius: 15;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+    -fx-alignment: center;
+}
+.user-avatar-label {
+    -fx-text-fill: #185FA5;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+.user-name-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A1A2E;
+}
+.user-role-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #9BA5B0;
+}
+
+/* ══════════════════════════════════════════════
+   TOPBAR
+   ══════════════════════════════════════════════ */
+.topbar {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #E8ECF0 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 14 20 14 20;
+}
+.page-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A1A2E;
+}
+.page-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #9BA5B0;
+    -fx-padding: 2 0 0 0;
+}
+
+/* ══════════════════════════════════════════════
+   SEARCH FIELD
+   ══════════════════════════════════════════════ */
+.search-field {
+    -fx-background-color: #F5F7FA;
+    -fx-border-color: #E0E5EB;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 7 12 7 12;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1A1A2E;
+    -fx-prompt-text-fill: #A0ABBA;
+    -fx-pref-height: 34px;
+    -fx-pref-width: 200px;
+}
+.search-field:focused {
+    -fx-border-color: #185FA5;
+    -fx-background-color: #FFFFFF;
+}
+
+/* ══════════════════════════════════════════════
+   BUTTONS
+   ══════════════════════════════════════════════ */
+.btn-primary {
+    -fx-background-color: #185FA5;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-pref-height: 34px;
+}
+.btn-primary:hover {
+    -fx-background-color: #0C447C;
+}
+.btn-primary:pressed {
+    -fx-background-color: #083260;
+}
+.btn-edit {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #D8DEE6;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #5A6777;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-padding: 4 10 4 10;
+}
+.btn-edit:hover {
+    -fx-background-color: #F0F4F8;
+    -fx-text-fill: #1A1A2E;
+}
+.btn-delete {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #D8DEE6;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #C0392B;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-padding: 4 10 4 10;
+}
+.btn-delete:hover {
+    -fx-background-color: #FDEDED;
+    -fx-border-color: #F5A0A0;
+    -fx-text-fill: #A32D2D;
+}
+
+/* ══════════════════════════════════════════════
+   STAT CARDS
+   ══════════════════════════════════════════════ */
+.stats-bar {
+    -fx-padding: 16 20 0 20;
+    -fx-spacing: 12;
+}
+.stat-card {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E8ECF0;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 12 14 12 14;
+    -fx-pref-width: 160px;
+}
+.stat-label {
+    -fx-font-size: 10px;
+    -fx-text-fill: #9BA5B0;
+    -fx-font-weight: bold;
+}
+.stat-value {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A1A2E;
+}
+.stat-sub {
+    -fx-font-size: 11px;
+    -fx-text-fill: #3B6D11;
+}
+
+/* ══════════════════════════════════════════════
+   TABLE VIEW
+   ══════════════════════════════════════════════ */
+.table-wrap {
+    -fx-padding: 16 20 20 20;
+}
+.table-card {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E8ECF0;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-table-cell-border-color: #F0F2F5;
+}
+.table-view .column-header-background {
+    -fx-background-color: #F8F9FB;
+    -fx-border-color: transparent transparent #E8ECF0 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-padding: 10 16 10 16;
+    -fx-border-width: 0;
+}
+.table-view .column-header .label {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #9BA5B0;
+    -fx-alignment: CENTER_LEFT;
+}
+.table-view .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #F5F7FA transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-pref-height: 46px;
+    -fx-cell-size: 46px;
+}
+.table-view .table-row-cell:hover {
+    -fx-background-color: #F8FAFB;
+}
+.table-view .table-row-cell:selected {
+    -fx-background-color: #EBF4FF;
+}
+.table-view .table-row-cell:selected .text {
+    -fx-fill: #1A1A2E;
+}
+.table-view .table-cell {
+    -fx-padding: 0 16 0 16;
+    -fx-text-fill: #374151;
+    -fx-font-size: 13px;
+    -fx-border-width: 0;
+    -fx-alignment: CENTER_LEFT;
+}
+.table-view .filler {
+    -fx-background-color: #F8F9FB;
+}
+.table-view .corner {
+    -fx-background-color: #F8F9FB;
+}
+/* Enlever le focus rectangle bleu autour du tableau */
+.table-view:focused {
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+}
+
+/* ══════════════════════════════════════════════
+   SCROLLBAR (discrète)
+   ══════════════════════════════════════════════ */
+.scroll-bar {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8px;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #D1D8E0;
+    -fx-background-radius: 4;
+}
+.scroll-bar .thumb:hover {
+    -fx-background-color: #A0ABBA;
+}
+.scroll-bar .track {
+    -fx-background-color: transparent;
+}
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-pref-height: 0;
+    -fx-pref-width: 0;
+}
+
+/* ══════════════════════════════════════════════
+   COMBOBOX
+   ══════════════════════════════════════════════ */
+.combo-box {
+    -fx-background-color: #F5F7FA;
+    -fx-border-color: #E0E5EB;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-width: 1;
+    -fx-pref-height: 34px;
+}
+.combo-box .list-cell {
+    -fx-text-fill: #374151;
+    -fx-font-size: 13px;
+    -fx-padding: 0 10 0 10;
+}
+
+/* ══════════════════════════════════════════════
+   DIALOG / ALERT
+   ══════════════════════════════════════════════ */
+.dialog-pane {
+    -fx-background-color: #FFFFFF;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.dialog-pane .header-panel {
+    -fx-background-color: #F8F9FB;
+    -fx-border-color: transparent transparent #E8ECF0 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.dialog-pane .header-panel .label {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A1A2E;
+}
+.dialog-pane .content.label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #374151;
+}
+.dialog-pane .button-bar .button {
+    -fx-background-radius: 7;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+
+/* ══════════════════════════════════════════════
+   FORM FIELDS inside dialogs
+   ══════════════════════════════════════════════ */
+.text-field, .password-field {
+    -fx-background-color: #F5F7FA;
+    -fx-border-color: #E0E5EB;
+    -fx-border-radius: 7;
+    -fx-background-radius: 7;
+    -fx-border-width: 1;
+    -fx-pref-height: 36px;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1A1A2E;
+    -fx-padding: 0 10 0 10;
+}
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #185FA5;
+    -fx-background-color: #FFFFFF;
+}
+
+/* ══════════════════════════════════════════════
+   BADGE STATUT
+   ══════════════════════════════════════════════ */
+.badge-green {
+    -fx-background-color: #EAF3DE;
+    -fx-text-fill: #3B6D11;
+    -fx-background-radius: 20;
+    -fx-padding: 3 10 3 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+.badge-red {
+    -fx-background-color: #FCEBEB;
+    -fx-text-fill: #A32D2D;
+    -fx-background-radius: 20;
+    -fx-padding: 3 10 3 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+.badge-blue {
+    -fx-background-color: #E6F1FB;
+    -fx-text-fill: #185FA5;
+    -fx-background-radius: 20;
+    -fx-padding: 3 10 3 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+.badge-orange {
+    -fx-background-color: #FEF3E2;
+    -fx-text-fill: #854F0B;
+    -fx-background-radius: 20;
+    -fx-padding: 3 10 3 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}

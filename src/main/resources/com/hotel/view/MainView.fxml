@@ -1,21 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml">
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.controller.MainController"
+            stylesheets="@style.css">
+
+    <!-- ══════════════════════════════════════
+         SIDEBAR GAUCHE
+         ══════════════════════════════════════ -->
+    <left>
+        <VBox styleClass="sidebar">
+
+            <!-- Logo -->
+            <VBox styleClass="sidebar-header">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <StackPane styleClass="logo-icon-box">
+                        <Label text="H" style="-fx-font-size:16px; -fx-font-weight:bold; -fx-text-fill:white;"/>
+                    </StackPane>
+                    <VBox spacing="0">
+                        <Label text="Hôtel Manager" styleClass="logo-title"/>
+                        <Label text="Dashboard" styleClass="logo-sub"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- Navigation -->
+            <VBox styleClass="nav-section" VBox.vgrow="ALWAYS">
+                <Button fx:id="btnClients"     text="  Clients"       styleClass="nav-btn-active" onAction="#showClients"      maxWidth="Infinity"/>
+                <Button fx:id="btnChambres"    text="  Chambres"      styleClass="nav-btn"        onAction="#showChambres"     maxWidth="Infinity"/>
+                <Button fx:id="btnReservations" text="  Réservations" styleClass="nav-btn"        onAction="#showReservations" maxWidth="Infinity"/>
+                <Button fx:id="btnEmployes"    text="  Employés"      styleClass="nav-btn"        onAction="#showEmployes"     maxWidth="Infinity"/>
+                <Button fx:id="btnPaiements"   text="  Paiements"     styleClass="nav-btn"        onAction="#showPaiements"    maxWidth="Infinity"/>
+            </VBox>
+
+            <!-- Footer utilisateur -->
+            <VBox styleClass="sidebar-footer">
+                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 6 8 6 8;">
+                    <StackPane styleClass="user-avatar">
+                        <Label text="AD" styleClass="user-avatar-label"/>
+                    </StackPane>
+                    <VBox spacing="1">
+                        <Label text="Admin" styleClass="user-name-label"/>
+                        <Label text="Gérant" styleClass="user-role-label"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </left>
+
+    <!-- ══════════════════════════════════════
+         CONTENU PRINCIPAL
+         ══════════════════════════════════════ -->
     <center>
-        <TabPane tabClosingPolicy="UNAVAILABLE">
-            <Tab text="Clients">
-                <fx:include source="ClientView.fxml"/>
-            </Tab>
-            <Tab text="Chambres">
-                <fx:include source="ChambreView.fxml"/>
-            </Tab>
-            <Tab text="Réservations">
-                <fx:include source="ReservationView.fxml"/>
-            </Tab>
-            <Tab text="Employés">
-                <fx:include source="EmployeView.fxml"/>
-            </Tab>
-        </TabPane>
+        <StackPane fx:id="contentArea">
+            <fx:include fx:id="clientView" source="ClientView.fxml"/>
+        </StackPane>
     </center>
+
 </BorderPane>

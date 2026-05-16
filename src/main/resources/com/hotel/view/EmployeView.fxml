@@ -1,29 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.hotel.controller.EmployeController">
-    <top>
-        <HBox spacing="10" style="-fx-padding: 10;">
-            <Label text="👷 Gestion Employés"
-                   style="-fx-font-size: 18; -fx-font-weight: bold;"/>
-            <Region HBox.hgrow="ALWAYS"/>
-            <Button text="+ Nouvel employé" onAction="#showAddDialog"
-                    style="-fx-background-color: #34d399; -fx-text-fill: white;"/>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hotel.controller.EmployeController"
+      stylesheets="@style.css">
+
+    <!-- ── TOPBAR ─────────────────────────────────── -->
+    <HBox styleClass="topbar" alignment="CENTER_LEFT">
+        <VBox spacing="2" HBox.hgrow="ALWAYS">
+            <Label text="Gestion employés" styleClass="page-title"/>
+            <Label text="Gérez votre équipe et leurs rôles" styleClass="page-subtitle"/>
+        </VBox>
+        <HBox spacing="8" alignment="CENTER_RIGHT">
+            <ComboBox fx:id="filtreRole"
+                      onAction="#handleFiltreRole"
+                      prefWidth="150"
+                      promptText="Filtrer par rôle"
+                      styleClass="combo-box"
+                      style="-fx-pref-height:34px;"/>
+            <TextField fx:id="searchField"
+                       onKeyReleased="#handleSearch"
+                       promptText="Rechercher..."
+                       styleClass="search-field"/>
+            <Button text="+ Ajouter employé"
+                    onAction="#showAddDialog"
+                    styleClass="btn-primary"/>
         </HBox>
-    </top>
-    <center>
-        <TableView fx:id="employeTable" style="-fx-padding: 10;">
-            <columns>
-                <TableColumn fx:id="colId"      text="ID"        prefWidth="50"/>
-                <TableColumn fx:id="colNom"     text="Nom"       prefWidth="120"/>
-                <TableColumn fx:id="colPrenom"  text="Prénom"    prefWidth="120"/>
-                <TableColumn fx:id="colRole"    text="Rôle"      prefWidth="100"/>
-                <TableColumn fx:id="colTel"     text="Téléphone" prefWidth="110"/>
-                <TableColumn fx:id="colStatut"  text="Statut"    prefWidth="90"/>
-                <TableColumn fx:id="colActions" text="Actions"   prefWidth="120"/>
-            </columns>
-        </TableView>
-    </center>
-</BorderPane>
+    </HBox>
+
+    <!-- ── TABLE ─────────────────────────────────── -->
+    <VBox styleClass="table-wrap" VBox.vgrow="ALWAYS">
+        <VBox styleClass="table-card" VBox.vgrow="ALWAYS">
+            <HBox style="-fx-padding: 12 16 12 16; -fx-border-color: transparent transparent #E8ECF0 transparent; -fx-border-width: 0 0 1 0;" alignment="CENTER_LEFT">
+                <Label text="Liste des employés" style="-fx-font-size:13px; -fx-font-weight:bold; -fx-text-fill:#1A1A2E;"/>
+            </HBox>
+            <TableView fx:id="employeTable"
+                       styleClass="table-view"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"      text="ID"       prefWidth="55"/>
+                    <TableColumn fx:id="colNom"     text="NOM"      prefWidth="120"/>
+                    <TableColumn fx:id="colPrenom"  text="PRÉNOM"   prefWidth="120"/>
+                    <TableColumn fx:id="colRole"    text="RÔLE"     prefWidth="100"/>
+                    <TableColumn fx:id="colTel"     text="TÉLÉPHONE" prefWidth="120"/>
+                    <TableColumn fx:id="colStatut"  text="STATUT"   prefWidth="100"/>
+                    <TableColumn fx:id="colNbCh"    text="CHAMBRES" prefWidth="90"/>
+                    <TableColumn fx:id="colActions" text="ACTIONS"  prefWidth="150"/>
+                </columns>
+                <placeholder>
+                    <Label text="Aucun employé trouvé"
+                           style="-fx-text-fill: #9BA5B0; -fx-font-size: 14px;"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </VBox>
+
+</VBox>

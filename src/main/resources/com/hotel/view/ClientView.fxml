@@ -1,31 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.hotel.controller.ClientController">
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hotel.controller.ClientController"
+      stylesheets="@style.css">
 
-    <top>
-        <HBox spacing="10" style="-fx-padding: 10;">
-            <Label text="👥 Gestion Clients"
-                   style="-fx-font-size: 18; -fx-font-weight: bold;"/>
-            <Region HBox.hgrow="ALWAYS"/>
-            <TextField fx:id="searchField" promptText="Rechercher..."
-                       onKeyReleased="#handleSearch" prefWidth="200"/>
-            <Button text="+ Nouveau" onAction="#showAddDialog"
-                    style="-fx-background-color: #34d399; -fx-text-fill: white;"/>
+    <!-- ── TOPBAR ─────────────────────────────────── -->
+    <HBox styleClass="topbar" alignment="CENTER_LEFT">
+        <VBox spacing="2" HBox.hgrow="ALWAYS">
+            <Label text="Gestion clients" styleClass="page-title"/>
+            <Label text="Consultez et gérez tous vos clients" styleClass="page-subtitle"/>
+        </VBox>
+        <HBox spacing="8" alignment="CENTER_RIGHT">
+            <TextField fx:id="searchField"
+                       promptText="Rechercher un client..."
+                       onKeyReleased="#handleSearch"
+                       styleClass="search-field"/>
+            <Button text="+ Nouveau client"
+                    onAction="#showAddDialog"
+                    styleClass="btn-primary"/>
         </HBox>
-    </top>
+    </HBox>
 
-    <center>
-        <TableView fx:id="clientTable" style="-fx-padding: 10;">
-            <columns>
-                <TableColumn fx:id="colId"     text="ID"        prefWidth="50"/>
-                <TableColumn fx:id="colNom"    text="Nom"       prefWidth="130"/>
-                <TableColumn fx:id="colPrenom" text="Prénom"    prefWidth="130"/>
-                <TableColumn fx:id="colEmail"  text="Email"     prefWidth="200"/>
-                <TableColumn fx:id="colTel"    text="Téléphone" prefWidth="120"/>
-                <TableColumn fx:id="colActions" text="Actions"  prefWidth="130"/>
-            </columns>
-        </TableView>
-    </center>
-</BorderPane>
+    <!-- ── STATS ─────────────────────────────────── -->
+    <HBox styleClass="stats-bar">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="TOTAL CLIENTS" styleClass="stat-label"/>
+            <Label fx:id="statTotal" text="—" styleClass="stat-value"/>
+            <Label text="clients enregistrés" styleClass="stat-sub"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="DERNIER AJOUT" styleClass="stat-label"/>
+            <Label fx:id="statDernier" text="—" styleClass="stat-value" style="-fx-font-size:14px;"/>
+            <Label text="client récent" styleClass="stat-sub"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="RÉSULTATS" styleClass="stat-label"/>
+            <Label fx:id="statRecherche" text="—" styleClass="stat-value"/>
+            <Label text="trouvés" styleClass="stat-sub"/>
+        </VBox>
+    </HBox>
+
+    <!-- ── TABLE ─────────────────────────────────── -->
+    <VBox styleClass="table-wrap" VBox.vgrow="ALWAYS">
+        <VBox styleClass="table-card" VBox.vgrow="ALWAYS">
+
+            <!-- En-tête du tableau -->
+            <HBox style="-fx-padding: 12 16 12 16; -fx-border-color: transparent transparent #E8ECF0 transparent; -fx-border-width: 0 0 1 0;" alignment="CENTER_LEFT">
+                <Label text="Liste des clients" style="-fx-font-size:13px; -fx-font-weight:bold; -fx-text-fill:#1A1A2E;" HBox.hgrow="ALWAYS"/>
+                <Label fx:id="tableCountLabel" text="" style="-fx-font-size:12px; -fx-text-fill:#9BA5B0;"/>
+            </HBox>
+
+            <TableView fx:id="clientTable"
+                       styleClass="table-view"
+                       VBox.vgrow="ALWAYS"
+                       style="-fx-background-radius: 0 0 10 10;">
+                <columns>
+                    <TableColumn fx:id="colId"      text="ID"         prefWidth="60"/>
+                    <TableColumn fx:id="colNom"     text="NOM"        prefWidth="150"/>
+                    <TableColumn fx:id="colPrenom"  text="PRÉNOM"     prefWidth="130"/>
+                    <TableColumn fx:id="colEmail"   text="EMAIL"      prefWidth="210"/>
+                    <TableColumn fx:id="colTel"     text="TÉLÉPHONE"  prefWidth="130"/>
+                    <TableColumn fx:id="colActions" text="ACTIONS"    prefWidth="160"/>
+                </columns>
+                <placeholder>
+                    <Label text="Aucun client trouvé"
+                           style="-fx-text-fill: #9BA5B0; -fx-font-size: 14px;"/>
+                </placeholder>
+            </TableView>
+
+        </VBox>
+    </VBox>
+
+</VBox>

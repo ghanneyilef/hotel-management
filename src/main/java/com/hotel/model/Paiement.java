@@ -11,11 +11,11 @@ public class Paiement {
     private String        modePaiement; // CARTE, ESPECES, VIREMENT
     private String        statut;       // PAYE, EN_ATTENTE, REMBOURSE
 
-    // Champs calculés (JOIN) pour l'affichage
+
     private String        nomClient;
     private String        numeroChambre;
 
-    // ─── Constructeurs ───────────────────────────────────────────
+
     public Paiement() {}
 
     public Paiement(int reservationId, double montant,
@@ -27,7 +27,7 @@ public class Paiement {
         this.datePaiement  = LocalDateTime.now();
     }
 
-    // ─── Getters & Setters ───────────────────────────────────────
+
     public int    getId()              { return id; }
     public void   setId(int id)        { this.id = id; }
 
