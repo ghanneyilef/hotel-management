@@ -42,8 +42,8 @@ public class ClientController {
         // Colonne Actions : boutons ✏️ et 🗑️
         // CORRECTION : TableCell<Client, Void> correspond à colActions<Client,Void>
         colActions.setCellFactory(col -> new TableCell<Client, Void>() {
-            private final Button btnEdit = new Button("✏️");
-            private final Button btnDel  = new Button("🗑️");
+            private final Button btnEdit = new Button("edit");
+            private final Button btnDel  = new Button("delete");
             {
                 btnEdit.setStyle("-fx-cursor:hand;");
                 btnDel .setStyle("-fx-cursor:hand;-fx-text-fill:#f87171;");
