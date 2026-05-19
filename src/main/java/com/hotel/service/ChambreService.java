@@ -9,20 +9,19 @@ public class ChambreService {
 
     private final ChambreDAO dao = new ChambreDAO();
 
-    // ── Lecture ────────────────────────────────────────────────────────────
+
     public List<Chambre> toutesChambres() {
         return dao.findAll();
     }
 
-    // CORRECTION : ChambreDAO n'a pas findDisponibles()
-    // → on filtre côté Java sur le statut LIBRE
+
     public List<Chambre> chambresDisponibles() {
         return dao.findAll().stream()
                 .filter(ch -> "LIBRE".equals(ch.getStatut()))
                 .toList();
     }
 
-    // ── Ajout ─────────────────────────────────────────────────────────────
+
     public boolean ajouterChambre(Chambre c) {
         if (c.getNumero() == null || c.getNumero().isBlank())
             throw new IllegalArgumentException("Le numéro de chambre est obligatoire.");
@@ -31,12 +30,12 @@ public class ChambreService {
         return dao.insert(c);
     }
 
-    // ── Modification ──────────────────────────────────────────────────────
+
     public boolean modifierChambre(Chambre c) {
         return dao.update(c);
     }
 
-    // ── Suppression ───────────────────────────────────────────────────────
+
     public boolean supprimerChambre(int id) {
         return dao.delete(id);
     }

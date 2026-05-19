@@ -39,17 +39,17 @@ public class PaiementService {
             throw new RuntimeException("Échec de l'insertion du paiement");
     }
 
-    // ─── Lister tous les paiements ──────────────────────────────
+
     public List<Paiement> tousLesPaiements() {
         return dao.findAll();
     }
 
-    // ─── Paiements d'une réservation ────────────────────────────
+
     public List<Paiement> paiementsDeReservation(int reservationId) {
         return dao.findByReservation(reservationId);
     }
 
-    // ─── Changer le statut d'un paiement ────────────────────────
+
     public void changerStatut(int paiementId, String nouveauStatut) {
         if (!List.of("PAYE", "EN_ATTENTE", "REMBOURSE").contains(nouveauStatut))
             throw new IllegalArgumentException("Statut invalide : " + nouveauStatut);
@@ -57,13 +57,13 @@ public class PaiementService {
             throw new RuntimeException("Mise à jour échouée");
     }
 
-    // ─── Supprimer un paiement ──────────────────────────────────
+
     public void supprimer(int paiementId) {
         if (!dao.delete(paiementId))
             throw new RuntimeException("Suppression échouée");
     }
 
-    // ─── Résumé financier ───────────────────────────────────────
+
     public double getTotalEncaisse() {
         return dao.totalEncaisse();
     }
